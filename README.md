@@ -7,4 +7,3 @@ Postgres sql
 
 
 
-/Users/jisanreza/Downloads/auth.png
