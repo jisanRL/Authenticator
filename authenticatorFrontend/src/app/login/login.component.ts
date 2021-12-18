@@ -11,10 +11,6 @@ export class LoginComponent implements OnInit {
   msg1: String = ""
   msg2: String = ""
 
-  // test variables
-  user: String = "admin"
-  password: String = "admin"
-
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -42,8 +38,13 @@ export class LoginComponent implements OnInit {
       } else {
         this.msg = "User not found"
       }
-      
     }
+  }
+  
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('username')
+    console.log(!(user === null))
+    return !(user === null)
   }
 
 }
