@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../model/User';
+import { HttpClientService } from '../service/http-client.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -13,9 +15,10 @@ export class AdminComponent implements OnInit {
   editUser: User = new User();
   deleteUser: User = new User();
 
-  constructor() { }
+  constructor(private httpService: HttpClientService) { }
 
   ngOnInit(): void {
+    this.getUser();
   }
 
 
@@ -35,10 +38,23 @@ export class AdminComponent implements OnInit {
 
   }
 
+  // gets the user from the database 
+  getUser(): void {
+    this.httpService.getUsers().subscribe(
+      (response: User[]) => {
+        this.users = response;
+        console.log(this.users);
+      }, 
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
   // add the employee to the server
   onAddUser(addForm: NgForm):void {
     document.getElementById('add-user-form')?.click();
-
+    // complete this........
   }
 
   //updates/edits user
