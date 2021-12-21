@@ -12,6 +12,8 @@ import { AdminComponent } from './admin/admin.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     AdminComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

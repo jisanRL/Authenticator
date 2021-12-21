@@ -1,44 +1,39 @@
-<body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <hr>
-    <form #recievedUser="" style="max-width:500px;margin:auto">
-         <h1><span id="header" routerLink="/">Auth<span class="underlined">enticator</span></span></h1> 
-         <br>
-         <br>
-         <br>
-        <h2>Register</h2>
-        <div class="input-container">
-            <i class="fa fa-user icon"></i>
-            <input type="text" class="input-field" id="name" placeholder="Name" name="name">
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1><span id="header" routerLink="/">Auth<span class="underlined">enticator</span></span></h1> 
+            <h2 class="text-center">Registration</h2>
         </div>
-        <div class="input-container">
-            <i class="fa fa-user icon"></i>
-            <input type="text" class="input-field" id="name" placeholder="user name" name="name">
+        <div class="modal-body">
+            <form class="form col-md-12 center-block">
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg" placeholder="Name">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control input-lg" placeholder="Username">
+                  </div>
+              <div class="form-group">
+                <input type="text" class="form-control input-lg" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg" placeholder="Type"> 
+                    <!-- change this to dropdown options -->
+                  </div>
+                <input type="text" class="form-control input-lg" placeholder="Address">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control input-lg" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+                <span class="pull-right"><a href="#" routerLink="/login">Login</a></span><span><a>Need help?</a></span>
+              </div>
+            </form>
         </div>
-        
-        <div class="input-container">
-            <i class="fa fa-envelope icon"></i>
-            <input type="text" class="input-field" id="email" placeholder="type Email" name="name">
+        <div class="modal-footer">  
         </div>
-
-        <div class="input-container">
-            <i class="fa fa-key icon"></i>
-            <input type="password" class="input-field" id="password" placeholder="password" name="password">
-        </div>
-        <div class="input-container">
-            <i class="fa fa-key icon"></i>
-            <input type="password" class="input-field" id="password2" placeholder="Repeat password" name="password">
-        </div>
-
-        <button type="button" class="btn btn-success" style="width: 100%;">Register</button>
-        <br><br>
-        <a routerLink="/login"> Login</a>
-        <br>
-        <br>
-        <span id="msg" style="color: red;"><b></b></span>
-    </form>
-    <hr>
-</body>
+    </div>
+    </div>
+  </div>

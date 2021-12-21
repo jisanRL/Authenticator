@@ -1,80 +1,33 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  * {box-sizing: border-box;}
-  
-  h1, #header {
-    z-index: 10;
-    color: black;
-    background-color:inherit;
-    /* text-shadow: 1px 1px 2px black, 0 0 25px rgb(147, 147, 177), 0 0 5px rgb(136, 136, 151); */
-    font-size: 75px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* padding-left: 10%; */
-    padding-top: 40px;
-    padding-bottom: 5px;
-  }
-  .underlined {
-    position: relative;
-    margin-right: 1rem;
-    z-index: 10;
-  }
-  .underlined:after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    height: 20px;
-    width: 100%;
-    border: solid 6px #cb1829;
-    border-color: #0730a1 transparent transparent transparent;
-    border-radius: 100%;
-    z-index: 10;
-  }
-  .row{
-    padding: 40px;
-    left: 550px;
-    position: fixed ;
-  }
-  
-  
-  .input-container {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  .icon {
-    padding: 10px;
-    background: dodgerblue;
-    color: white;
-    min-width: 50px;
-    text-align: center;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    outline: none;
-  }
-  
-  .input-field:focus {
-    border: 2px solid dodgerblue;
-  }
-  
-  /* Set a style for the submit button */
-  .btn {
-    background-color: dodgerblue;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-  }
-  
-  .btn:hover {
-    opacity: 1;
-  }
-  
+                
+body{margin-top:20px;}              
+.modal-footer {   border-top: 0px; }
+
+h1, #header {
+  z-index: 10;
+  color: black;
+  margin: 12px;
+  background-color:inherit;
+  /* text-shadow: 1px 1px 2px black, 0 0 25px rgb(147, 147, 177), 0 0 5px rgb(136, 136, 151); */
+  font-size: 75px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* padding-left: 10%; */
+  padding-top: 40px;
+  padding-bottom: 15px;
+}
+.underlined {
+  position: relative;
+  margin-right: 1rem;
+  z-index: 10;
+}
+.underlined:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 20px;
+  width: 100%;
+  border: solid 6px #cb1829;
+  border-color: #0730a1 transparent transparent transparent;
+  border-radius: 100%;
+  z-index: 10;
+}
