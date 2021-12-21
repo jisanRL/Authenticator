@@ -54,17 +54,46 @@ export class AdminComponent implements OnInit {
   // add the employee to the server
   onAddUser(addForm: NgForm):void {
     document.getElementById('add-user-form')?.click();
-    // complete this........
+    
+    this.httpService.addUser(addForm.value).subscribe(
+      (response: User) => {
+        console.log(response);
+        this.getUser();
+        addForm.reset();
+      }, 
+      // error response 
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    )
   }
 
   //updates/edits user
   onUpdateUser(user: User):void{
-
+    this.httpService.updateUser(user).subscribe(
+      (response: User) => {
+        console.log(user);
+        this.getUser();
+      }, 
+      // error response
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
+    )
   }
 
   //deletes the user 
-  onDeleteUser(usedID: number) {
-
+  onDeleteUser(usedID: number):void {
+    this.httpService.deleteUser(usedID).subscribe(
+      (response: void) => {
+        console.log(response)
+        this.getUser();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
+    )
   }
 
   // opens the modal
@@ -79,9 +108,11 @@ export class AdminComponent implements OnInit {
       button.setAttribute('data-target', '#addUserModal')
     }
     if(mode === 'edit'){
+      this.editUser = user;
       button.setAttribute('data-target', '#updateUserModal')
     }
     if(mode === 'delete') {
+      this.deleteUser = user;
       button.setAttribute('data-target', '#deleteUserModal')
     }
     container?.appendChild(button);
