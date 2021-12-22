@@ -37,6 +37,9 @@ public class User {
 	@Column(name="type")
 	private String type;
 	
+	@Column(name="phone")
+	private String phone;
+	
 	@NotBlank
 	@Size(max=25)
 	@Email
@@ -95,6 +98,14 @@ public class User {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {
