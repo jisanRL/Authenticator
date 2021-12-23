@@ -5,22 +5,27 @@
             <h1><span id="header" routerLink="/">Auth<span class="underlined">enticator</span></span></h1> 
             <h2 class="text-center">Login</h2>
         </div>
+
         <div class="modal-body">
             <form class="form col-md-12 center-block">
               <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Email">
+                <input type="text" id = "username" class="form-control input-lg" placeholder="Type Username or Email">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control input-lg" placeholder="Password">
+                <input type="password" id= "password" class="form-control input-lg" placeholder="Password">
               </div>
               <div class="form-group">
-                <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+                <button class="btn btn-primary btn-lg btn-block" (click)="login()" >Sign In</button>
+                <br>
                 <span class="pull-right"><a href="#" routerLink="/register">Register</a></span><span><a href="#">Need help?</a></span>
               </div>
             </form>
         </div>
+       
         <div class="modal-footer">  
+          <br>
+    <span id="msg" style="color: red;padding-right:41%;"><b>{{msg ||msg1 || msg2 }}</b></span>
         </div>
     </div>
     </div>
-  </div>
+</div>
