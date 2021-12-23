@@ -30,7 +30,9 @@
     
     <tbody >
       <tr *ngFor="let user of users">
-         <!--srcset="{{user?.imageURL}} 1x, {{user.image}} 1x"  -->
+         <!--srcset="{{user?.imageURL}} 1x, {{user.image}} 1x"  
+         src="{{'data:image/jpg;base64,'+ user?.image}}" 
+         -->
          <td>{{user.id}}</td>
          <td><span><img class="img" src="{{user?.imageURL}}" ></span>{{user.name}}</td>
         <td>{{user.username}}</td>
@@ -105,7 +107,7 @@
           <label for="password">Image</label>
           <!-- <input type="password" ngModel name="password" class="form-control" id="password" placeholder="Password" required> -->
           <!-- fix this later -->
-          <input type='file' id='image' class="inputs" #images>
+          <input type='file' id='image' ngModel name="image" class="inputs" #images (change)="onFileSelected($event)">
         </div>
           <div class="modal-footer">
              <button type="button" id="add-user-form" class="btn btn-secondary" data-dismiss="modal">Close</button>

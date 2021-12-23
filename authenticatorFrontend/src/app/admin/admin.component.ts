@@ -15,6 +15,8 @@ export class AdminComponent implements OnInit {
   editUser: User = new User();
   deleteUser: User = new User();
 
+  selectedFile = null;
+
   constructor(private httpService: HttpClientService) { }
 
   ngOnInit(): void {
@@ -118,4 +120,15 @@ export class AdminComponent implements OnInit {
     container?.appendChild(button);
     button.click();
   }
+
+  // image upload segment
+  onFileSelected(event: any){
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+  }
+  onUpload(){
+    // this.httpService.addUser()
+  }
+
+
 }

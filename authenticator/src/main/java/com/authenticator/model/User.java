@@ -51,7 +51,7 @@ public class User {
 	
 	@Column(name="image")
 	@Size(max = 20000000)
-	private byte[] picByte;
+	private byte[] image;
 	
 	@Column(name="imageURL")
 	private String imageURL;
@@ -59,10 +59,11 @@ public class User {
 	//ctr
 	public User() {}
 	
-	public User(String username, String email, String password) {
+	public User(String username, String email, String password, byte[] image) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.image = image;
 	}
 	
 	public Long getId() {
@@ -103,7 +104,6 @@ public class User {
 	public String getPhone() {
 		return phone;
 	}
-
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
@@ -127,5 +127,12 @@ public class User {
 	}
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 }

@@ -57,10 +57,20 @@ public class AuthController {
 	}
 	
 	// posts in the database
+//	@PostMapping("/add")
+//	public User addUser(@RequestBody User user) {
+//		return usr.save(user);
+//	}
 	@PostMapping("/add")
-	public User addUser(@RequestBody User user) {
-		return usr.save(user);
-	}
+	public ResponseEntity<User> addUser(@RequestBody User image) {
+		try {
+			User user = usr.save(image);
+			return new ResponseEntity<>(user, HttpStatus.CREATED);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	} 
 	
 	// updates the users information
 	@PutMapping("/update") 
