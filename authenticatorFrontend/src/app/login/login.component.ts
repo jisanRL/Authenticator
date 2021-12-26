@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../model/User';
+import { FormBuilder } from '@angular/forms';
+import { HttpClientService } from '../service/http-client.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,11 +11,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loginForm: any;
+  pullUser: User = new User();
+  token: any;
+  loggedIn: any;
+
+  // messeages 
   msg: String = ""
   msg1: String = ""
   msg2: String = ""
 
-  constructor(private router:Router) { }
+  constructor(private httpService: HttpClientService,  private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -23,14 +33,35 @@ export class LoginComponent implements OnInit {
 
     if (username.length == 0 && password.length == 0) {
       this.msg = "Leave no field blank";
-      
     } else if(username.length == 0) {
       this.msg1 = "Don't leave username blank"
     } else if (password.length == 0){
       this.msg2 = "Don't leave password blank"
     }
     else {
-      // check the database against the input values
+      let check;
+      this.httpService.getUserName(username).subscribe(
+        (response) => {
+          let check = JSON.stringify(response);
+          let users = JSON.parse(check);
+
+          if (users.username == username && users.password == password) {
+            this.genAndSaveUserToken(check);
+            let checker = localStorage.getItem("redirect");
+            if (checker) {
+              localStorage.removeItem("redirect");
+              this.router.navigate(["/profile"]);
+            } else {
+              this.router.navigate([""]);
+            }
+          } else {
+            alert("Incorrect Username or Password");
+          }
+        }
+      );
+
+      // check the database against the input values  [TESTING]
+     /*
       if (username == "admin" && password == "admin") {
         this.router.navigate(['/', 'admin']);
       } else if(username == "sam" && password == "sam") {
@@ -38,7 +69,24 @@ export class LoginComponent implements OnInit {
       } else {
         this.msg = "User not found"
       }
+      */
     }
+  }
+  genAndSaveUserToken(user: any) {
+    let obuser = JSON.parse(user);
+    this.httpService.saveToken(obuser.type);
+    this.httpService.saveUser(user);
+  }
+  checksession() {
+    this.token = this.httpService.getToken();
+    this.httpService.signOut();
+  }
+  logOut() {
+    this.httpService.signOut();
+    window.location.reload();
+  }
+  handleUser(response: any) {
+    this.httpService = response;
   }
   
   isUserLoggedIn() {

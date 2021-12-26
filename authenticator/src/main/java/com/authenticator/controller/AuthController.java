@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.authenticator.Repository.UserRepository;
@@ -39,7 +40,6 @@ public class AuthController {
 	public List<User> usrData(){
 		return usr.findAll();	
 	}
-	
 	// gets user by name
 	@GetMapping("/get/{name}")
 	public ResponseEntity<List<User>> getUser(@PathVariable("name") String name) {
@@ -54,6 +54,12 @@ public class AuthController {
 			// TODO: handle exception
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);	// HTTP -> 500
 		}
+	}
+	// finds users by username
+	@GetMapping("/byuser/{username}")
+	public User getUserName(@PathVariable("username") String username) {
+		List<User> userblock = usr.findByUsername(username);
+		return userblock.get(0);
 	}
 	
 	// posts in the database
