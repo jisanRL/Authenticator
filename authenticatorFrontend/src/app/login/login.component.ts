@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   token: any;
   loggedIn: any;
 
-  // messeages 
+  currentUser: any;
+  // messeges 
   msg: String = ""
   msg1: String = ""
   msg2: String = ""
@@ -24,6 +25,19 @@ export class LoginComponent implements OnInit {
   constructor(private httpService: HttpClientService,  private router:Router) { }
 
   ngOnInit(): void {
+    this.checkLoginStatus();
+    
+  }
+  
+  // check if the user is logged in
+  checkLoginStatus() {
+    if(this.httpService.checkToken()) {
+      this.loggedIn = 1;    // user is logged in 
+      this.currentUser = this.httpService.getUserKey();
+      console.log("the current user is = " + this.currentUser);
+    } else {
+      this.loggedIn = 0;    // user is not logged in
+    }
   }
 
   // checks the database and logs in
@@ -40,6 +54,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       let check;
+      // gets the username from the backend 
       this.httpService.getUserName(username).subscribe(
         (response) => {
           let check = JSON.stringify(response);
@@ -89,10 +104,10 @@ export class LoginComponent implements OnInit {
     this.httpService = response;
   }
   
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
-  }
+  // isUserLoggedIn() {
+  //   let user = sessionStorage.getItem('username')
+  //   console.log(!(user === null))
+  //   return !(user === null)
+  // }
 
 }
