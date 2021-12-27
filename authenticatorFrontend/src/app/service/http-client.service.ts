@@ -36,7 +36,6 @@ export class HttpClientService {
   deleteUser(id: Number){
     return this.httpclient.delete<void>('http://localhost:8080/delete/' + id);
   }
-
   // signs the user out
   signOut(){
     window.sessionStorage.clear();
@@ -49,8 +48,9 @@ export class HttpClientService {
   }
   // the any can be string too, check this later
   public getToken(): any {
-    return sessionStorage.getItem(TOKEN_KEY);
+    return sessionStorage.getItem(TOKEN_KEY)!;
   }
+  // saves the user
   public saveUser(user: User): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));

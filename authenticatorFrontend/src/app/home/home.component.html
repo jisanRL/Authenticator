@@ -1,4 +1,137 @@
 <app-navbar></app-navbar>
 
-<p style="padding-top: 80px;padding-left: 30px;">home works!</p>
+<p style="padding-top: 80px;padding-left: 30px;" >home works!</p>
 
+
+<h1>User is logged out</h1>
+<div class="container lg padding-20px-tb">
+        <div class="row">
+            <div class="col-md-4 xs-margin-30px-bottom">
+                <div class="card categories-card">
+                    <div class="card-img"><img src="https://via.placeholder.com/550x420/FFB6C1/000000" alt=""></div>
+
+                    <div class="card-img-overlay align-items-center">
+                        <div class="bg-white-opacity">
+
+                            <h3><a href="#!">Home Decor</a></h3>
+                            <ul class="categories-02">
+                                <li><a href="#!" class="line position-relative">Sofa</a></li>
+                                <li><a href="#!" class="line position-relative">Lamp</a></li>
+                                <li>
+                                    <a href="#!">More</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 xs-margin-30px-bottom">
+                <div class="card categories-card">
+                    <div class="card-img"><img src="https://via.placeholder.com/550x420/87CEFA/000000" alt=""></div>
+
+                    <div class="card-img-overlay align-items-center">
+                        <div class="bg-white-opacity">
+
+                            <h3><a href="#!">Gadgets</a></h3>
+                            <ul class="categories-02">
+                                <li><a href="#!" class="line position-relative">Mobile</a></li>
+                                <li><a href="#!" class="line position-relative">Laptop</a></li>
+                                <li>
+                                    <a href="#!">More</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card categories-card">
+                    <div class="card-img"><img src="https://via.placeholder.com/550x420/FF7F50/000000" alt=""></div>
+
+                    <div class="card-img-overlay align-items-center">
+                        <div class="bg-white-opacity">
+                            <h3><a href="#!">Footware</a></h3>
+                            <ul class="categories-02">
+                                <li><a href="#!" class="line position-relative">Flats</a></li>
+                                <li><a href="#!" class="line position-relative">Heels</a></li>
+                                <li>
+                                    <a href="#!">More</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- appears only when user is logged in -->
+<ng-container *ngIf="isLoggedIn">
+    <h1>User is logged In</h1>
+    <div class="container lg padding-20px-tb">
+        <div class="row">
+            <div class="col-md-4 xs-margin-30px-bottom">
+                <div class="card categories-card">
+                    <div class="card-img"><img src="https://via.placeholder.com/550x420/FFB6C1/000000" alt=""></div>
+
+                    <div class="card-img-overlay align-items-center">
+                        <div class="bg-white-opacity">
+
+                            <h3><a href="#!">Home Decor</a></h3>
+                            <ul class="categories-02">
+                                <li><a href="#!" class="line position-relative">Sofa</a></li>
+                                <li><a href="#!" class="line position-relative">Lamp</a></li>
+                                <li>
+                                    <a href="#!">More</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 xs-margin-30px-bottom">
+                <div class="card categories-card">
+                    <div class="card-img"><img src="https://via.placeholder.com/550x420/87CEFA/000000" alt=""></div>
+
+                    <div class="card-img-overlay align-items-center">
+                        <div class="bg-white-opacity">
+
+                            <h3><a href="#!">Gadgets</a></h3>
+                            <ul class="categories-02">
+                                <li><a href="#!" class="line position-relative">Mobile</a></li>
+                                <li><a href="#!" class="line position-relative">Laptop</a></li>
+                                <li>
+                                    <a href="#!">More</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card categories-card">
+                    <div class="card-img"><img src="https://via.placeholder.com/550x420/FF7F50/000000" alt=""></div>
+
+                    <div class="card-img-overlay align-items-center">
+                        <div class="bg-white-opacity">
+                            <h3><a href="#!">Footware</a></h3>
+                            <ul class="categories-02">
+                                <li><a href="#!" class="line position-relative">Flats</a></li>
+                                <li><a href="#!" class="line position-relative">Heels</a></li>
+                                <li>
+                                    <a href="#!">More</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { User } from '../model/User';
 import { HttpClientService } from '../service/http-client.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -17,12 +18,21 @@ export class AdminComponent implements OnInit {
 
   selectedFile = null;
 
-  constructor(private httpService: HttpClientService) { }
+  constructor(private httpService: HttpClientService, private router: Router) { }
 
   ngOnInit(): void {
+    this.accessCheck();
     this.getUser();
   }
-
+  
+  // if the user is not an employee then he wont be able to get into this component and page
+  accessCheck(){
+    let check = this.httpService.getToken();
+    if (check != "Employee") {
+      alert("Illegal Access");
+      this.router.navigate(['']);
+    } else {}
+  }
 
   // $(document).ready(function () {
   //   $('#dt-vertical-scroll').dataTable({
@@ -34,7 +44,6 @@ export class AdminComponent implements OnInit {
   //     "scrollY": 450,
   //   });
   // });
-
 
   searchUser(name: String) {
 

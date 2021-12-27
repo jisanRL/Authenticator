@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLoginStatus();
-    
   }
   
   // check if the user is logged in
@@ -60,6 +59,7 @@ export class LoginComponent implements OnInit {
           let check = JSON.stringify(response);
           let users = JSON.parse(check);
 
+          // fix the routing later
           if (users.username == username && users.password == password) {
             this.genAndSaveUserToken(check);
             let checker = localStorage.getItem("redirect");
@@ -87,6 +87,7 @@ export class LoginComponent implements OnInit {
       */
     }
   }
+  //determines the user type
   genAndSaveUserToken(user: any) {
     let obuser = JSON.parse(user);
     this.httpService.saveToken(obuser.type);
@@ -98,7 +99,9 @@ export class LoginComponent implements OnInit {
   }
   logOut() {
     this.httpService.signOut();
+    // this.router.navigate(["/"]);
     window.location.reload();
+    
   }
   handleUser(response: any) {
     this.httpService = response;
