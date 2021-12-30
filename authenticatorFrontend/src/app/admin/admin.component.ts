@@ -93,7 +93,6 @@ export class AdminComponent implements OnInit {
       }
     )
   }
-
   //deletes the user 
   onDeleteUser(usedID: number):void {
     this.httpService.deleteUser(usedID).subscribe(
