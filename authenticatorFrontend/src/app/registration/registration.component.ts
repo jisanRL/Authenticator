@@ -31,20 +31,41 @@ export class RegistrationComponent implements OnInit {
       this.loggedIn = 1;    // user is logged in 
       this.currentUser = this.httpService.getUserKey();
       console.log("the current user is = " + this.currentUser);
+      this.router.navigate(['']);
     } else {
       this.loggedIn = 0;    // user is not logged in
+      this.httpService.getUsers().subscribe(
+        (response) => {
+          this.users = response;
+        } 
+      )
+      
     }
   }
 
   addUser(addForm: NgForm): void {
+
+    addForm.value.type = '';
+    this.httpService.saveToken("");
+    this.httpService.saveUser(addForm.value);
+    
     this.httpService.addUser(addForm.value).subscribe(
       (response: User) => {
-        console.log(response);
-        this.router.navigate(['/profile']);
-        this.loggedIn = 1;    // user is logged in 
-        this.currentUser = this.httpService.getUserKey();
+        alert("Registration successful");
+        // console.log(response);
+        // this.router.navigate(['/profile']);
+        // this.loggedIn = 1;    // user is logged in 
+        // this.currentUser = this.httpService.getUserKey();
       }
     );
+    let check = localStorage.getItem("redirect");
+    if (check) {
+      localStorage.removeItem("redirect");
+      this.router.navigate(['/profile']);
+    } else {
+      this.router.navigate(['']);
+    }
+
   }
 
 

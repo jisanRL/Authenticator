@@ -19,9 +19,11 @@ export class NavbarComponent implements OnInit {
     this.isLoggedIn = !!this.httpservice.getToken();
 
     if (this.isLoggedIn) {
-      const user = this.httpservice.getUserKey();
-      console.log("user.username = " + user.username)
-      this.username = user.username;      // fix this (this will display the username )
+      const user = JSON.parse(this.httpservice.getUserKey());
+      this.username = user.username;      // (this will display the username )
+      
+      // console.log("user = " +  user)
+      // console.log("user.username = " + user.username)
     } 
   }
 

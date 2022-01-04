@@ -1,34 +1,33 @@
 <app-navbar></app-navbar>
 
-<p style="padding-top: 80px;padding-left: 30px;">admin works!</p>
+<p style="padding-top: 80px;padding-left: 30px;">admin Section!</p>
 
 <!-- search -->
-<div class="search">
-    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-        <input type="text" placeholder="Search users..." name="search2">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</div>
+<form class="form-inline my-2 my-lg-0">
+   <input style="width:90%;margin-left:60px;" type="search" (ngModelChange)="searchUser(key.value)" #key="ngModel" ngModel
+   name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search users..." required>
+</form>
 
 <!-- table -->
 <hr>
 <button type="button" class="btn btn-success" (click)="onOpenModal(null!, 'add')"  style="float: right;margin-right: 50px;margin-bottom:10px;">Add User</button>
 <p style="padding-left:30px;"><b>{{users.length}} Users</b> </p>
-<table id="dt-vertical-scroll" class="table" cellspacing="0" width="100%">
-    <thead>
-      <tr>
-        <th class="th-sm">ID</th>
-        <th class="th-sm">Name</th>
-        <th class="th-sm">Username</th>
-        <th class="th-sm">Type</th>
-        <th class="th-sm">Phone Number</th>
-        <th class="th-sm">Email</th>
-        <th class="th-sm">Address</th>
-        <th class="th-sm">Actions</th>
-      </tr>
-    </thead>
-    
-    <tbody >
+
+<div class="outer">
+   <table id="dt-vertical-scroll" class="table table-hover bg-light">
+      <thead>
+         <tr>
+           <th class="th-sm">ID</th>
+           <th class="th-sm">Name</th>
+           <th class="th-sm">Username</th>
+           <th class="th-sm">Type</th>
+           <th class="th-sm">Phone Number</th>
+           <th class="th-sm">Email</th>
+           <th class="th-sm">Address</th>
+           <th class="th-sm">Actions</th>
+         </tr>
+       </thead>
+     <tbody>
       <tr *ngFor="let user of users">
          <!--srcset="{{user?.imageURL}} 1x, {{user.image}} 1x"  
          src="{{'data:image/jpg;base64,'+ user?.image}}" 
@@ -50,9 +49,13 @@
             </span>
         </td>
       </tr>
-      
-    </tbody>
-</table>
+     </tbody>
+   </table>
+ 
+</div>
+
+
+
 
 <div class="footer"><p>sadas</p></div>
 
