@@ -1,122 +1,99 @@
 <app-navbar></app-navbar>
-<br><br><br><br>
-<button type="button" class="btn btn-danger" routerLink="/editProfile">Edit Profile</button>
-<br><br> 
-<div class="container bootstrap snippets bootdey">
-    <div class="panel-body inf-content">
-        <div class="row">
-            <div class="col-md-4">
-                <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip"
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario">
-                <ul title="Ratings" class="list-inline ratings text-center">
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <strong>Information</strong><br>
-                <div class="table-responsive">
-                    <table class="table table-user-information">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                        Id
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    123456789
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-user  text-primary"></span>
-                                        Name
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    Bootdey
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-cloud text-primary"></span>
-                                        Username
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    Bootstrap
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-bookmark text-primary"></span>
-                                        Address
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    bootnipets
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-eye-open text-primary"></span>
-                                        Role
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    Admin
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-envelope text-primary"></span>
-                                        Email
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    noreply@email.com
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                        created
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    20 jul 20014
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                        Modified
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                    20 jul 20014 20:00:00
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<body *ngIf="loggedIn">
+   <div class="container"  *ngIf="currentUser;">
+    <div class="row">
+      <div class="col-lg-5 col-md-6">
+        <div class="mb-2">
+          <img class="w-100" src={{currentUser.imageURL}} alt="">
         </div>
-    </div>
-</div>
+        <br>
+        <div class="mb-2 d-flex">
+          <h2 class="font-weight-normal">{{currentUser.username}}</h2>
+          <div class="social d-flex ml-auto">
+            <p class="pr-2 font-weight-normal">Follow on:</p>
+            <a href="#" class="text-muted mr-1">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-muted mr-1">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-muted mr-1">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-muted">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+       <br>
+        <div class="mb-2">
+          <ul class="list-unstyled">
+            <li class="media">
+                <span class="w-25 text-black font-weight-normal">ID:</span>
+                <label class="media-body">{{currentUser.id}}</label>
+            </li>
+            <li class="media">
+                <span class="w-25 text-black font-weight-normal">Type:</span>
+                <label class="media-body">{{currentUser.type}}</label>
+            </li>
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Phone: </span>
+              <label class="media-body">{{currentUser.phone}}</label>
+            </li>
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Email: </span>
+              <label class="media-body">{{currentUser.email}}</label>
+            </li>
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Location: </span>
+              <label class="media-body">{{currentUser.address}}</label>
+            </li>
+          </ul>
+          <button routerLink="/editProfile" class="btn btn-primary">Edit Profile</button>
+        </div>
+      </div>
 
+      <div class="col-lg-7 col-md-6 pl-xl-3">
+        <h1>{{currentUser.name}}</h1>
+        <p>Along with your plans, you should consider developing an action orientation that will keep you motivated to move forward at all times. This requires a little self-discipline, but is a crucial component to achievement of any kind. 
+          Before starting any new activity, ask yourself if that activity will move you closer to your goals. 
+          If the answer is no, you may want to reconsider doing it at that time.</p>
+        
+          
+     
+          
+        <div class="mb-2 mt-2 pt-1">
+          <h2 class="font-weight-normal">Skill</h2>
+        </div>
+        <div class="py-1">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar-title">Finance</div>
+              <span class="progress-bar-number">85%</span>
+            </div>
+          </div>
+        </div>
+        <div class="py-1">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar-title">Information Technologies</div>
+              <span class="progress-bar-number">70%</span>
+            </div>
+          </div>
+        </div>
+        <div class="py-1">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:77%" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar-title">Education</div>
+              <span class="progress-bar-number">77%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+   
+</body>

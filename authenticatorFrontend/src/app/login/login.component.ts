@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   checkLoginStatus() {
     if(this.httpService.checkToken()) {
       this.loggedIn = 1;    // user is logged in 
-      this.currentUser = this.httpService.getUserKey();
+      this.currentUser = JSON.parse(this.httpService.getUserKey());
       console.log("the current user is = " + this.currentUser);
     } else {
       this.loggedIn = 0;    // user is not logged in
@@ -100,17 +100,9 @@ export class LoginComponent implements OnInit {
   logOut() {
     this.httpService.signOut();
     // this.router.navigate(["/"]);
-    window.location.reload();
-    
+    window.location.reload(); 
   }
   handleUser(response: any) {
     this.httpService = response;
   }
-  
-  // isUserLoggedIn() {
-  //   let user = sessionStorage.getItem('username')
-  //   console.log(!(user === null))
-  //   return !(user === null)
-  // }
-
 }
