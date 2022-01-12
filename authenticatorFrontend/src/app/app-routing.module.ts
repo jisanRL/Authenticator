@@ -6,11 +6,13 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'viewUser', component: ViewUserComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'editProfile', component: EditProfileComponent },

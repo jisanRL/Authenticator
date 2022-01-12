@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     RegistrationComponent,
     LoginComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,

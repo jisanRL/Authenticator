@@ -1,0 +1,17 @@
+.container{
+    margin-top: 100px;
+}
+
+.inf-content{
+    border:1px solid #DDDDDD;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}			
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+    .container {
+        margin-top: 40%;
+    }
+}

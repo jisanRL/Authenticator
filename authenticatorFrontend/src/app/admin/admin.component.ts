@@ -10,11 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
+
 export class AdminComponent implements OnInit {
 
   users: User[] = [];
   selectedUser: User = new User();
-  
+  username: String ='';
   editUser: User = new User();
   deleteUser: User = new User();
   action: String = "";
@@ -28,6 +29,9 @@ export class AdminComponent implements OnInit {
     this.accessCheck();
     // this.getUser();
     this.refreshData();
+
+    const user = JSON.parse(this.httpService.getUserKey());
+    this.username = user.name;
   }
   
   // if the user is not an employee/admin then he wont be able to get into this component and page
@@ -94,7 +98,12 @@ export class AdminComponent implements OnInit {
       this.refreshData();
     }
   }
-  
+  // views the user
+  viewUser(id: any){
+    this.selectedUser = this.users.find(user => user.id === id)!;
+    localStorage.setItem("viewUser", JSON.stringify(this.selectedUser));
+    this.router.navigate(['/viewUser']);
+  }
 
   // gets the user from the database 
   getUser(): void {
