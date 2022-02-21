@@ -44,14 +44,14 @@ export class RegistrationComponent implements OnInit {
   }
 
   addUser(addForm: NgForm): void {
-
-    addForm.value.type = '';
+    // addForm.value.type = '';
     this.httpService.saveToken("");
     this.httpService.saveUser(addForm.value);
-    
+    console.log(addForm.value);
+
     this.httpService.addUser(addForm.value).subscribe(
       (response: User) => {
-        alert("Registration successful");
+        alert("Registration successful!\nEnter username and password to login");
         // console.log(response);
         // this.router.navigate(['/profile']);
         // this.loggedIn = 1;    // user is logged in 
@@ -61,12 +61,9 @@ export class RegistrationComponent implements OnInit {
     let check = localStorage.getItem("redirect");
     if (check) {
       localStorage.removeItem("redirect");
-      this.router.navigate(['/profile']);
+      // this.router.navigate(['/login']);
     } else {
-      this.router.navigate(['']);
+      this.router.navigate(['/login']);
     }
-
   }
-
-
 }

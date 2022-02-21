@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn = false;
   username: string = '';
+  usertype: String = '';
 
   constructor(private httpservice: HttpClientService, private router: Router) { }
 
@@ -21,9 +22,10 @@ export class NavbarComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = JSON.parse(this.httpservice.getUserKey());
       this.username = user.username;      // (this will display the username )
-      
+      this.usertype = user.type;
       // console.log("user = " +  user)
       // console.log("user.username = " + user.username)
+      console.log("user.type = " + user.type)
     } 
   }
 

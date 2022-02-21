@@ -4,7 +4,7 @@
             <a class="navbar-brand" routerLink="/">authenticator</a>
         </div>
 
-        <form class="navbar-form navbar-left" action="">
+        <!-- <form class="navbar-form navbar-left" action="">
             <div class="input-group" style="float: right;">
                 <input type="text" class="form-control" placeholder="Search..." name="search" style="width:800px;">
                 <div class="input-group-btn">
@@ -13,7 +13,7 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </form> -->
 
         <ul class="nav navbar-nav" *ngIf="!isLoggedIn" 
         style="float: right;color:azure;">
@@ -37,11 +37,9 @@
                     <button type="button" class="btn btn-secondary dropdown-toggle" 
                     data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" style="background-color: transparent;">Hi, {{ username }}</button>
-                    <div class="dropdown-menu dropdown-menu-right">
-            <li><a routerLink="/login">Login</a></li>
-            <li><a routerLink="/register">Create Account</a></li>
+                    <div class="dropdown-menu dropdown-menu-right">    
             <li><a routerLink="/profile" >{{username}}'s Profile</a></li> <!-- remove this later  -->
-            <li><a routerLink="/admin" >Admin</a></li> <!-- remove this later  -->
+            <li><a routerLink="/admin" *ngIf="usertype === 'Admin' || usertype === 'admin' || usertype === 'Employee'">Admin</a></li> <!-- remove this later  -->
             <li><a routerLink="/" (click)="logOut()">Logout</a></li>
             </div>
             </div>
