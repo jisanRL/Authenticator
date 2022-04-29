@@ -11,5 +11,5 @@ Database: Postgres sql
 
 
 
-
-/Users/jisanreza/Documents/web_projects/authenticator/auth.png
+System design
+![auth](https://user-images.githubusercontent.com/26589002/165969481-11fafa83-ccbb-48ca-a16a-8dfa5c931be1.png)
