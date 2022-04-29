@@ -1,11 +1,15 @@
 # Authenticator
 
 Angular + Springboot login registration app
-Springboot Java 8
-Angular 7
-Postgres sql
+
+Back-End: Springboot Java 8
+
+Front-End: Angular 7
+
+Database: Postgres sql
 
 
 
-// notes remove later 
-admin section table -> https://mdbootstrap.com/docs/b4/jquery/tables/datatables/
+
+
+/Users/jisanreza/Documents/web_projects/authenticator/auth.png
